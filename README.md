@@ -23,5 +23,10 @@
 - events : 디스코드봇 이벤트(메시지 전송 등) 코드
 - functions : 디스코드봇이 제공하는 기능에 대한 코드
 
+## 사용 모델
+- GPT-3 - https://beta.openai.com/docs/models/gpt-3
+- Latent Diffusion - https://huggingface.co/multimodalart/compvis-latent-diffusion-text2img-large/tree/main
+
+
 
     
