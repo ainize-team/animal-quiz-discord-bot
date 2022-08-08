@@ -2,10 +2,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Client, Collection, GatewayIntentBits } from 'discord.js';
 import config from './config.json' assert { type: 'json' };
-import {message,ready} from './events';
-import {ping} from './commands';
-const eventsList = [message, ready];
-const commandsList = [ping];
 
 const __dirname = path.resolve();
 const client = new Client({
@@ -24,8 +20,7 @@ const commandFiles = fs
   .filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-  const filePath = path.join(commandsPath, file);
-  const command = require(filePath);
+  const command = await import(`./commands/${file}`);
   // Set a new item in the Collection
   // With the key as the command name and the value as the exported module
   client.commands.set(command.data.name, command);
@@ -35,7 +30,7 @@ const eventFiles = fs
   .readdirSync('./events')
   .filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
-  const event = require(`./events/${file}`);
+  const event = await import(`./events/${file}`);
   if (event.once) {
     client.once(event.name, (...args) => event.execute(...args, client));
   } else {
