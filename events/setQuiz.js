@@ -3,12 +3,12 @@ const quizChannelId = '1001379949514592348'; // 디스코드 앱에서 채널 �
 const styleQuizChannelId = '1004673582963630152';
 let quizHandleCounter = 0;
 const quizInterval = 1;
+const totalInterval = quizInterval * 2;
 
 const name = 'ready';
 const once = true;
 const execute = function (client) {
   cron.schedule('* * * * *', () => {
-    const totalInterval = quizInterval * 2;
     quizHandleCounter = (quizHandleCounter += 1) % totalInterval;
     let channel;
     let mode;
