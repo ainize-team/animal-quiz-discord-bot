@@ -14,7 +14,6 @@ const commandFiles = fs
 
 for (const file of commandFiles) {
   const command = await import(`./commands/${file}`);
-  // const command = require(filePath);
   commands.push(command.data.toJSON());
 }
 
