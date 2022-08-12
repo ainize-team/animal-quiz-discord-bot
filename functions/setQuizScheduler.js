@@ -5,7 +5,7 @@ const quizChannelId = config['quizChannelId'];
 //const quizChannelId = process.env.CHANNEL_ID // 실제 배포시에 사용할 코드
 const quizInterval = 1;
 const longTermQuizInterval = 10;
-const longTermCount = longTermQuizInterval/quizInterval
+const longTermCount = longTermQuizInterval / quizInterval;
 const second = 1000;
 const minute = 60 * second;
 const extendIntervalAfter = 3 * minute;
@@ -40,4 +40,4 @@ function logLastUserTimestamp() {
   lastUserTimestamp = Date.now();
 }
 
-export { setQuiz, logLastUserTimestamp};
+export { setQuiz, logLastUserTimestamp };
