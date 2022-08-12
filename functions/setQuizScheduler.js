@@ -15,7 +15,7 @@ let lastUserTimestamp = Date.now();
 
 function setQuiz(client) {
   cron.schedule(`*/${quizInterval} * * * *`, async () => {
-    // this function will be called every minutes
+    // this function will be called every quizInterval minutes
     if (!timeToSendQuiz()) return;
     quizHandleCounter = (quizHandleCounter + 1) % 2;
     const channel = client.channels.cache.get(quizChannelId);
