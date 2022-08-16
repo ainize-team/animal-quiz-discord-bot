@@ -5,9 +5,7 @@ const quizChannelId = config['quizChannelId'];
 function isCommandExcluded(channelId, interaction) {
   const isExcluded = isChannelExcluded(channelId);
   if (isExcluded) {
-    interaction.reply(
-      'Move to <#' + quizChannelId + '> Channel to create quiz!',
-    );
+    interaction.reply(`Move to <#${quizChannelId}> Channel to create quiz!`);
   }
   return isExcluded;
 }

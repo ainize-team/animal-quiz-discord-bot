@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { AttachmentBuilder, EmbedBuilder } from 'discord.js';
 import { getQuizDict } from './getQuiz.js';
 
-const getEmbed = quiz =>
+const getEmbed = (quiz) =>
   new EmbedBuilder()
     .setDescription('Quiz : <Guess X! Add an animal emoji for X>\n' + quiz)
     .setColor('#5104DB')

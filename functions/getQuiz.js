@@ -1,9 +1,6 @@
+import { getKeyByValue } from './utils.js';
 import quizEmojiDict from '../emojis.json' assert { type: 'json' };
 const animalDict = quizEmojiDict['animalDict'];
-
-function getKeyByValue(object, value) {
-  return Object.keys(object).find(key => object[key] === value);
-}
 
 function getQuizDict(text, animal) {
   const description = text;

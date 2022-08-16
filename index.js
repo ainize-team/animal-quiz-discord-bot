@@ -17,7 +17,7 @@ client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs
   .readdirSync(commandsPath)
-  .filter(file => file.endsWith('.js'));
+  .filter((file) => file.endsWith('.js'));
 
 for (const file of commandFiles) {
   const command = await import(`./commands/${file}`);
@@ -28,7 +28,7 @@ for (const file of commandFiles) {
 
 const eventFiles = fs
   .readdirSync('./events')
-  .filter(file => file.endsWith('.js'));
+  .filter((file) => file.endsWith('.js'));
 for (const file of eventFiles) {
   const event = await import(`./events/${file}`);
   if (event.once) {
@@ -38,7 +38,7 @@ for (const file of eventFiles) {
   }
 }
 
-client.on('interactionCreate', async interaction => {
+client.on('interactionCreate', async (interaction) => {
   if (!interaction.isCommand()) return;
 
   const command = client.commands.get(interaction.commandName);
