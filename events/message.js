@@ -1,7 +1,7 @@
 import { logLastUserTimestamp } from '../functions/setQuizScheduler.js';
 import { isChannelExcluded } from '../functions/excludeChannels.js';
 
-const name = 'messageCreate';
+const eventName = 'messageCreate';
 const execute = async message => {
   const content = message.content;
   if (message.author.bot || message.author.system || content === '') return;
@@ -12,4 +12,4 @@ const execute = async message => {
   return;
 };
 
-export { name, execute };
+export { eventName as name, execute };

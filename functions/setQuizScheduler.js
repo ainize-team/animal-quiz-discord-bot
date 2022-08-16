@@ -3,7 +3,11 @@ import config from '../config.json' assert { type: 'json' };
 import { sendQuizByScheduler } from './sendQuiz.js';
 const quizChannelId = config['quizChannelId'];
 //const quizChannelId = process.env.CHANNEL_ID // 실제 배포시에 사용할 코드
-import { quizInterval, longTermQuizInterval, extendIntervalAfter } from '../const.js';
+import {
+  quizInterval,
+  longTermQuizInterval,
+  extendIntervalAfter,
+} from '../const.js';
 let lastUserTimestamp = Date.now();
 
 function setQuiz(client) {
@@ -11,7 +15,8 @@ function setQuiz(client) {
   let longTermCounter = 0;
   cron.schedule(`*/${quizInterval} * * * *`, async () => {
     // this function will be called every quizInterval minutes
-    longTermCounter = (longTermCounter + 1) % (longTermQuizInterval / quizInterval);
+    longTermCounter =
+      (longTermCounter + 1) % (longTermQuizInterval / quizInterval);
     if (!timeToSendQuiz(longTermCounter)) return;
     quizHandleCounter = (quizHandleCounter + 1) % 2;
     const channel = client.channels.cache.get(quizChannelId);
