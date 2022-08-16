@@ -1,8 +1,8 @@
 import { setQuiz } from '../functions/setQuizScheduler.js';
-const name = 'ready';
-const once = true;
-const execute = function (client) {
+const eventName = 'ready';
+const executeOnce = true;
+const execute = client => {
   setQuiz(client);
 };
 
-export { name, once, execute };
+export { eventName as name, executeOnce as once, execute };
