@@ -29,12 +29,12 @@ const execute = (interaction) => {
   const animal = interaction.options.getString('animal');
   let description = interaction.options.getString('description');
 
-  if (!!!animal) {
+  if (!animal) {
     interaction.reply('Please write animal option and description option');
     return;
   }
 
-  if (!!!description) {
+  if (!description) {
     interaction.reply('Please write description option');
     return;
   }
