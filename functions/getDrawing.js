@@ -10,21 +10,27 @@ function getBase64Data(response) {
     console.log(response);
     return false;
   }
-  const imageData = responseData['data'];
-  if (!imageData) {
-    console.log('error: fail to get image data');
+  const imageDataArray = responseData['data'];
+  if (!imageDataArray) {
+    console.log('error: fail to get image data array');
     console.log(responseData);
     return false;
   }
 
-  // 현재 사용중인 서버는 base64Data를 배열 안에 넣어 전송함. 로컬 서버로 이전한 뒤에는 아래의 if문 까지의 코드는 삭제 (imageData가 바로 base64Data가 될 것)
-  const base64Data = imageData[0];
-  if (!base64Data) {
-    console.log('error: fail to get base64Data');
-    console.log(imageData);
+  // 현재 사용중인 서버는 base64Data를 배열 안에 넣어 전송함. 로컬 서버로 이전한 뒤에는 imageDataArray => imageData로 변경하여 아래의 if문을 위와 통합할 것
+  const imageData = imageDataArray[0];
+  if (!imageData) {
+    console.log('error: fail to get image data');
+    console.log(imageDataArray);
     return false;
   }
 
+  const base64Data = imageData.replace(/^data:image\/png;base64,/, '');
+  if (base64Data.length === imageData.length) {
+    console.log('error: fail to get base64 data');
+    console.log(imageData);
+    return false;
+  }
   return base64Data;
 }
 
@@ -46,8 +52,7 @@ async function getDrawing(text) {
       return false;
     }
 
-    const base64DataOnly = base64Data.replace(/^data:image\/png;base64,/, '');
-    return base64DataOnly;
+    return base64Data;
   } catch (e) {
     console.log(e);
     return false;
