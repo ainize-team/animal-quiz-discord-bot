@@ -20,7 +20,7 @@ function getBase64Data(response) {
   // 현재 사용중인 서버는 base64Data를 배열 안에 넣어 전송함. 로컬 서버로 이전한 뒤에는 아래의 if문 까지의 코드는 삭제 (imageData가 바로 base64Data가 될 것)
   const base64Data = imageData[0];
   if (!base64Data) {
-    console.log('error: fail to get image');
+    console.log('error: fail to get base64Data');
     console.log(imageData);
     return false;
   }
