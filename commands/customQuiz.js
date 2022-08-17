@@ -22,7 +22,7 @@ const data = new SlashCommandBuilder()
       ),
   );
 const execute = (interaction) => {
-  if (isCommandExcluded(interaction.channel['id'], interaction)) {
+  if (isCommandExcluded(interaction, 'create quiz')) {
     return;
   }
 
