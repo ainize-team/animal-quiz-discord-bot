@@ -37,7 +37,7 @@ function getText(response) {
 }
 
 async function getTalk(text) {
-  const prompt = description + talkDescription + '\nme: ' + text + '\nMark:';
+  const prompt = `${description} ${talkDescription}'\nme: ${text}'\nMark:`;
   const headers = {
     'content-type': 'application/json',
     Authorization: 'Bearer ' + apikey,
