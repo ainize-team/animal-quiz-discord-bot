@@ -7,7 +7,7 @@ import {
   quizInterval,
   longTermQuizInterval,
   extendIntervalAfter,
-} from '../const.js';
+} from '../../data/const.js';
 let lastUserTimestamp = Date.now();
 
 function setQuiz(client) {

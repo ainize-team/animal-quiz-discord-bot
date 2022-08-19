@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { text2imageInfo as image } from '../const.js';
+import { text2imageInfo as image } from '../../data/const.js';
 const url =
   'https://hf.space/embed/multimodalart/latentdiffusion/+/api/predict/';
 

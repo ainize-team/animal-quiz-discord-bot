@@ -1,5 +1,5 @@
 import { getKeyByValue } from './utils.js';
-import quizEmojiDict from '../emojis.json' assert { type: 'json' };
+import quizEmojiDict from '../../data/emojis.json' assert { type: 'json' };
 const animalDict = quizEmojiDict['animalDict'];
 
 function getQuizDict(text, animal) {
