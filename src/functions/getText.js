@@ -1,11 +1,11 @@
-import config from '../config.json' assert { type: 'json' };
 import { description, talkDescription } from '../../data/prompts.js';
+import axios from 'axios';
+import config from '../config.json' assert { type: 'json' };
 const apikey = config['apikey'];
 const OrganizationID = config['OrganizationID'];
 const url = 'https://api.openai.com/v1/completions';
 
 function getText(response) {
-  console.log(response);
   const responseData = response['data'];
   if (!responseData) {
     console.log('error: get wrong format of response');
@@ -63,13 +63,16 @@ async function getTalk(text) {
 
     const talk = getText(response);
     if (!talk) {
-      return 'sorry, something is wrong with the server';
+      return 'sorry, something is wrong with the text';
     }
-
-    return talk;
+    if (!talk.replace(/\s/g, '')) {
+      return '.';
+    } else {
+      return talk;
+    }
   } catch (e) {
     console.log(e);
-    return false;
+    return 'sorry, something is wrong with the server';
   }
 }
 

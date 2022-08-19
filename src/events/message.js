@@ -1,5 +1,6 @@
 import { logLastUserTimestamp } from '../functions/setQuizScheduler.js';
 import { isChannelExcluded } from '../functions/excludeChannels.js';
+import { getTalk } from '../functions/getText.js';
 
 const eventName = 'messageCreate';
 const execute = async (message) => {
@@ -8,7 +9,9 @@ const execute = async (message) => {
   if (isChannelExcluded(message.channel['id'])) return;
   logLastUserTimestamp();
 
-  message.reply('test');
+  const response = await getTalk(content);
+  message.reply(response);
+
   return;
 };
 
