@@ -82,8 +82,9 @@ async function getTalk(text) {
 }
 
 async function getImagination(animal) {
-  const prompt =
-    description + '\n' + designerPromptExampleList[getRandomInt(6)] + animal;
+  const prompt = `${description}\n${
+    designerPromptExampleList[getRandomInt(6)]
+  } ${animal}`;
   try {
     const response = await axios.post(
       url,
