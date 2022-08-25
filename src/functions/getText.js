@@ -11,7 +11,7 @@ const OrganizationID = config['OrganizationID'];
 const url = 'https://api.openai.com/v1/completions';
 const headers = {
   'content-type': 'application/json',
-  Authorization: 'Bearer ' + apikey,
+  Authorization: `Bearer ${apikey}`,
   'OpenAI-Organization': OrganizationID,
 };
 
@@ -88,7 +88,7 @@ async function getImagination(animal) {
     const response = await axios.post(
       url,
       {
-        model: 'text-curie-001',
+        model: 'text-davinci-002',
         prompt: prompt,
         temperature: 1,
         max_tokens: 30,

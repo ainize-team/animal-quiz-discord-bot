@@ -5,7 +5,7 @@ import quizStyleDict from '../../data/styles.json' assert { type: 'json' };
 const animalDict = quizEmojiDict['animalDict'];
 const styleList = quizStyleDict['styles'];
 
-function getAnimalSetAsList() {
+function getOneEmojiPerOneAnimal() {
   let animalList = [];
   for (let x in animalDict) {
     animalList.push(animalDict[x]);
@@ -15,7 +15,7 @@ function getAnimalSetAsList() {
   return animalList;
 }
 
-const animalList = getAnimalSetAsList();
+const animalList = getOneEmojiPerOneAnimal();
 
 function getQuizDict(text, animal) {
   const description = text;
@@ -41,8 +41,8 @@ async function getRandomQuiz(mode) {
       ', in ' +
       styleList[getRandomInt(styleList.length)] +
       ' style';
-  } else if (mode == 'drawing') {
-    description = 'A painting of ' + description;
+  } else if (mode === 'drawing') {
+    description = `A painting of ${description}`;
   }
   const quiz = description.toLowerCase().replaceAll(animal, 'X');
   const emoji = getKeyByValue(animalDict, animal); // 이렇게 한 이유 : 한 동물에 대한 이모지가 여러개 존재하는 경우가 있기 때문
