@@ -35,12 +35,10 @@ async function getRandomQuiz(mode) {
   const animal = animalList[getRandomInt(animalList.length)];
   const imagine = await getImagination(`${animal} shaped`);
   description = `${animal} shaped ${imagine}`;
-  if (mode == 'style') {
-    description =
-      description +
-      ', in ' +
-      styleList[getRandomInt(styleList.length)] +
-      ' style';
+  if (mode === 'style') {
+    description = `${description}, in ${
+      styleList[getRandomInt(styleList.length)]
+    } style`;
   } else if (mode === 'drawing') {
     description = `A painting of ${description}`;
   }
