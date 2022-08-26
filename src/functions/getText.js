@@ -47,9 +47,11 @@ function getText(response) {
 }
 
 async function getTalk(text) {
-  const prompt = `${description} ${talkDescription}
+  const prompt = `${description}
+${talkDescription}
 me: ${text}
 Mark:`;
+  console.log(prompt);
   try {
     const response = await axios.post(
       url,
@@ -67,7 +69,6 @@ Mark:`;
         headers: headers,
       },
     );
-    console.log(prompt);
 
     const talk = getText(response);
     if (!talk) {
