@@ -51,7 +51,6 @@ async function getTalk(text) {
 ${talkDescription}
 me: ${text}
 Mark:`;
-  console.log(prompt);
   try {
     const response = await axios.post(
       url,
