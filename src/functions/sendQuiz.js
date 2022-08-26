@@ -56,7 +56,6 @@ async function sendQuizByScheduler(channel, mode) {
 }
 
 async function sendLastQuizAnswer(quizDict) {
-  // name 으로 답체크해야됨! (이모지 대신에)
   if (typeof quizDict !== 'undefined') {
     const message = quizDict['message'];
     const answer = quizDict['animal'];

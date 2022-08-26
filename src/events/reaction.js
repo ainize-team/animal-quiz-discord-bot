@@ -8,7 +8,6 @@ const execute = async (reaction, user) => {
   if (user.bot) return;
   logLastUserTimestamp();
 
-  console.log();
   if (
     reaction._emoji.name === '❤️' &&
     reaction.message.author.username === 'Mark on Mars' &&
