@@ -2,12 +2,13 @@ import { getDrawing } from './getDrawing.js';
 import fs from 'node:fs';
 import { AttachmentBuilder, EmbedBuilder } from 'discord.js';
 import { getRandomQuiz, getQuizDict } from './getQuiz.js';
+import { checkGalleryMessageAndReactWithAnswer } from './sendToGallery.js';
 
 const getEmbed = (quiz) => {
   return new EmbedBuilder()
     .setDescription('Quiz : <Guess X! Add an animal emoji for X>\n' + quiz)
     .setColor('#5104DB')
-    .setFooter({ text: 'drew by Mark in Mars' })
+    .setFooter({ text: 'drew by Mark on Mars' })
     .setTimestamp();
 };
 
@@ -54,16 +55,17 @@ async function sendQuizByScheduler(channel, mode) {
   }, 30 * second);
 }
 
-async function sendLastQuizAnswer(quizDict) { // name 으로 답체크해야됨! (이모지 대신에)
+async function sendLastQuizAnswer(quizDict) {
+  // name 으로 답체크해야됨! (이모지 대신에)
   if (typeof quizDict !== 'undefined') {
     const message = quizDict['message'];
     const answer = quizDict['animal'];
     const emoji = quizDict['emoji'];
     message.react(emoji);
+    checkGalleryMessageAndReactWithAnswer(message, emoji);
+
     const embed = new EmbedBuilder()
-      .setDescription(
-        `The answer of the last quiz was "${answer}" ${emoji}`,
-      )
+      .setDescription(`The answer of the last quiz was "${answer}" ${emoji}`)
       .setColor('#5104DB')
       .setTimestamp();
 
