@@ -29,7 +29,8 @@ function sendToGalleryChannel(message) {
     if (
       value.message.author.username === 'Mark on Mars' &&
       value.message.author.discriminator === '5234' &&
-      key !== '❤️'
+      key !== '❤️' &&
+      value.me
     ) {
       animal = key;
     }
