@@ -12,6 +12,10 @@ function checkGalleryMessageAndReactWithAnswer(message, answerEmoji) {
         }
       }
     }
+    lastSentMessageEmbed = null;
+    if (lastSentMessage) {
+      lastSentMessage = null;
+    }
   });
 }
 

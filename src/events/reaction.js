@@ -11,7 +11,7 @@ const execute = async (reaction, user) => {
   if (
     reaction._emoji.name === '❤️' &&
     reaction.message.author.username === 'Mark on Mars' &&
-    reaction.message.author.discriminator == '5234'
+    reaction.message.author.discriminator === '5234'
   ) {
     sendToGalleryChannel(reaction.message);
   }

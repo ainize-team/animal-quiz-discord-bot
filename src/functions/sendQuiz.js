@@ -70,7 +70,7 @@ async function sendLastQuizAnswer(quizDict) {
 
     const replyMessage = await message.reply({ embeds: [embed] });
     replyMessage.reply(
-      `When I feel alone, I draw quiz once in an hour. When I don't, I draw quiz once in 5 minutes`,
+      `When I feel alone, I draw quiz once in an hour. When I don't, I draw quiz once in a minute`,
     );
   }
 }
