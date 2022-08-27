@@ -11,8 +11,9 @@ function checkGalleryMessageAndReactWithAnswer(message, answerEmoji) {
           lastSentMessage.react(answerEmoji);
         }
       }
+      lastSentMessageEmbed = null;
     }
-    lastSentMessageEmbed = null;
+
     if (lastSentMessage) {
       lastSentMessage = null;
     }
