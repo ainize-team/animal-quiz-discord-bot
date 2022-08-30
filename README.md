@@ -26,6 +26,7 @@
 - GALLERY_CHANNEL_ID = 갤러리 채널 아이디
 - QUIZ_OBJECT = animal (or fruit)
 - BOT_NAME = Mark (or Marry)
+- TTI_MODEL_URL = endpoint URL
 
 ## 파일경로
 
