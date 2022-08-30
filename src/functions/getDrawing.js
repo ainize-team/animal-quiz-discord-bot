@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { text2imageInfo as image } from '../../data/const.js';
-import { delay } from './utils.js';
+import { delay, getRandomInt } from './utils.js';
 import dotenv from 'dotenv';
 dotenv.config();
 const url = process.env.TTI_MODEL_URL;
@@ -16,11 +16,11 @@ async function getDrawing(text) {
       {
         prompt: text,
         steps: image.steps,
-        seed: image.seed,
+        seed: getRandomInt(256),
         width: image.width,
         height: image.height,
         images: image.count,
-        guidance_scale: image.diversityScale,
+        guidance_scale: image.guidanceScale,
       },
       {
         headers: headers,
