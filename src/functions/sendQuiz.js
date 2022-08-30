@@ -1,6 +1,5 @@
 import { getDrawing } from './getDrawing.js';
-import fs from 'node:fs';
-import { AttachmentBuilder, EmbedBuilder } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 import { getRandomQuiz, getQuizDict } from './getQuiz.js';
 import { checkGalleryMessageAndReactWithAnswer } from './sendToGallery.js';
 import dotenv from 'dotenv';

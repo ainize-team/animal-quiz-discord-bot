@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { text2imageInfo as image } from '../../data/const.js';
 import { delay } from './utils.js';
-const url = 'https://3873-103-139-119-10.jp.ngrok.io';
+import dotenv from 'dotenv';
+dotenv.config();
+const url = process.env.TTI_MODEL_URL;
 const headers = {
   'content-type': 'application/json',
   accept: 'application/json',
@@ -26,7 +28,6 @@ async function getDrawing(text) {
     );
     const task_id = response['data']['task_id'];
     let i = 0;
-    let responseData;
     for (; i <= 15; i++) {
       const second = 1000;
       await delay(2 * second); /// waiting 1 second.
@@ -35,7 +36,7 @@ async function getDrawing(text) {
         headers: headers,
       });
 
-      responseData = getResponse['data'];
+      const responseData = getResponse['data'];
       const status = responseData['status'];
       if (status === 'completed') {
         const imageUrl = responseData['result']['grid']['url'];
