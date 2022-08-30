@@ -22,7 +22,7 @@ async function processQuiz(quizDict) {
   const quiz = quizDict['quiz'];
   const imageUrl = await getDrawing(description);
 
-  if (imageUrl === false) {
+  if (!imageUrl) {
     const embed = getEmbed('Sorry, something is wrong with the drawing.');
     return {
       embeds: [embed],

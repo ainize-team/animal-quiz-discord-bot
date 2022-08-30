@@ -27,8 +27,7 @@ async function getDrawing(text) {
       },
     );
     const task_id = response['data']['task_id'];
-    let i = 0;
-    for (; i <= 15; i++) {
+    for (let i = 0; i <= 15; i++) {
       const second = 1000;
       await delay(2 * second); /// waiting 1 second.
 
