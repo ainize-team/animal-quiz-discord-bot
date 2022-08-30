@@ -79,28 +79,28 @@ const designerPromptExampleDict = {
 11. `,
   ],
   fruit: [
-    `1. watermelon shaped alarm clock with a green stem, and bright yellow seeds that are the buttons..
-  2. grape shaped sofa with a purple velvet body, and green leaves as the cushions.
-  3. lemon shaped candle, with a soft flickering light.
-  4. melon shaped stereo that has a built in speakers, and an attached shaped ipod dock.
-  5. pineapple shaped chair with a seat that is made of leaves, and spikes that are inspired by traditional polynesian tattoos.
-  6. strawberry shaped table with a red body and white seeds as the legs.
-  7. watermelon shaped mirror with a green body and red seeds as the frame.
-  8. grape shaped chandelier with purple glass as the body and green leaves as the arms.
-  9. watermelon dress that has a skirt made of ruffles that look like the fruit's seeds.
-  10. cherry shaped phone with a red body, and white seeds that are the buttons.
-  11. `,
+    `1. watermelon shaped alarm clock with a green stem, and bright yellow seeds that are the buttons.
+2. grape shaped sofa with a purple velvet body, and green leaves as the cushions.
+3. lemon shaped candle, with a soft flickering light.
+4. melon shaped stereo that has a built in speakers, and an attached shaped ipod dock.
+5. pineapple shaped chair with a seat that is made of leaves, and spikes that are inspired by traditional polynesian tattoos.
+6. strawberry shaped table with a red body and white seeds as the legs.
+7. watermelon shaped mirror with a green body and red seeds as the frame.
+8. grape shaped chandelier with purple glass as the body and green leaves as the arms.
+9. watermelon dress that has a skirt made of ruffles that look like the fruit's seeds.
+10. cherry shaped phone with a red body, and white seeds that are the buttons.
+11. `,
     `1. peach shaped kettle, oil on canvas.
-  2. avocado shaped chair, made of silver.
-  3. watermelon shaped balloon, scribbled with chalk.
-  4. blueberry shaped necklace, oil on canvas.
-  5. banana shaped earring, made of colorful glass.
-  6. melon shaped car, vector image.
-  7. strawberry shaped ring, Adobe Illustration Sticker Svg.
-  8. lemon shaped lamp, made of gold.
-  9. peach shaped teapot, made of emerald.
-  10. apple shaped bottle, made of glass.
-  11. `,
+2. avocado shaped chair, made of silver.
+3. watermelon shaped balloon, scribbled with chalk.
+4. blueberry shaped necklace, oil on canvas.
+5. banana shaped earring, made of colorful glass.
+6. melon shaped car, vector image.
+7. strawberry shaped ring, Adobe Illustration Sticker Svg.
+8. lemon shaped lamp, made of gold.
+9. peach shaped teapot, made of emerald.
+10. apple shaped bottle, made of glass.
+11. `,
   ],
 };
 

@@ -88,9 +88,10 @@ ${botName}:`;
 }
 
 async function getImagination(object) {
-  const prompt = `${description}\n${
-    designerPromptExampleDict[process.env.QUIZ_OBJECT][getRandomInt(6)]
-  }${object}`;
+  const promptList = designerPromptExampleDict[process.env.QUIZ_OBJECT];
+  const prompt = `${description}
+${promptList[getRandomInt(promptList.length)]}${object}`;
+  console.log(prompt);
   try {
     const response = await axios.post(
       url,
