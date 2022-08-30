@@ -31,7 +31,7 @@ function sendToGalleryChannel(message) {
     }
     if (
       value.message.author.username === `${botName} on Mars` &&
-      value.message.author.discriminator === `${discriminator}` &&
+      value.message.author.discriminator === discriminator &&
       key !== '❤️' &&
       value.me
     ) {
