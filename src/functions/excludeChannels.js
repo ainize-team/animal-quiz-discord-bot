@@ -1,6 +1,6 @@
-import config from '../config.json' assert { type: 'json' };
-const quizChannelId = config['quizChannelId'];
-//const quizChannelId = process.env.CHANNEL_ID // 실제 배포시에 사용할 코드
+import dotenv from 'dotenv';
+dotenv.config();
+const quizChannelId = process.env.QUIZ_CHANNEL_ID; // 실제 배포시에 사용할 코드
 
 function isCommandExcluded(interaction, commandMessage) {
   const isExcluded = isChannelExcluded(interaction.channel['id']);

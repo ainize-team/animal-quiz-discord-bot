@@ -1,5 +1,6 @@
-import config from '../config.json' assert { type: 'json' };
-const galleryChannelId = config['galleryChannelId'];
+import dotenv from 'dotenv';
+dotenv.config();
+const galleryChannelId = process.env.GALLERY_CHANNEL_ID;
 let lastSentMessage = null;
 let lastSentMessageEmbed = null;
 

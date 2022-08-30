@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
-import config from './config.json' assert { type: 'json' };
+import dotenv from 'dotenv';
+dotenv.config();
 
 const __dirname = path.resolve();
 
@@ -17,11 +18,17 @@ for (const file of commandFiles) {
   commands.push(command.data.toJSON());
 }
 
-const rest = new REST({ version: '9' }).setToken(config['token']);
+const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
 
 rest
-  .put(Routes.applicationGuildCommands(config['clientId'], config['guildId']), {
-    body: commands,
-  })
+  .put(
+    Routes.applicationGuildCommands(
+      process.env.CLIENT_ID,
+      process.env.GUILD_ID,
+    ),
+    {
+      body: commands,
+    },
+  )
   .then(() => console.log('Successfully registered application commands.'))
   .catch(console.error);

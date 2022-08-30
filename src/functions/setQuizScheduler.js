@@ -1,8 +1,9 @@
 import cron from 'node-cron';
-import config from '../config.json' assert { type: 'json' };
+import dotenv from 'dotenv';
+dotenv.config();
 import { sendQuizByScheduler } from './sendQuiz.js';
-const quizChannelId = config['quizChannelId'];
-//const quizChannelId = process.env.CHANNEL_ID // 실제 배포시에 사용할 코드
+const quizChannelId = process.env.QUIZ_CHANNEL_ID;
+
 import {
   quizInterval,
   longTermQuizInterval,
