@@ -20,8 +20,8 @@
 - TOKEN = 디스코드봇 로그인을 위한 토큰
 - CLIENT_ID = 디스코드봇 아이디
 - GUILD_ID = 디스코드 서버 아이디
-- API_KEY = GPT3 API KEY,
-- ORGANIZATION_ID = GPT3 사용자 ID,
+- API_KEY = GPT3 API KEY
+- ORGANIZATION_ID = GPT3 사용자 ID
 - QUIZ_CHANNEL_ID = 퀴즈채널 아이디
 - GALLERY_CHANNEL_ID = 갤러리 채널 아이디
 
