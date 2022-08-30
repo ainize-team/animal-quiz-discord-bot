@@ -1,6 +1,8 @@
 import dotenv from 'dotenv';
 dotenv.config();
 const galleryChannelId = process.env.GALLERY_CHANNEL_ID;
+const botName = process.env.BOT_NAME;
+const discriminator = process.env.DISCRIMINATOR;
 let lastSentMessage = null;
 let lastSentMessageEmbed = null;
 
@@ -28,8 +30,8 @@ function sendToGalleryChannel(message) {
       return;
     }
     if (
-      value.message.author.username === 'Mark on Mars' &&
-      value.message.author.discriminator === '5234' &&
+      value.message.author.username === `${botName} on Mars` &&
+      value.message.author.discriminator === discriminator &&
       key !== '❤️' &&
       value.me
     ) {
