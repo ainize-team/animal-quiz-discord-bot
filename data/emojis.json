@@ -80,5 +80,27 @@
     "🦦": "otter",
     "🦥": "sloth",
     "🦔": "hedgehog"
+  },
+  "fruitDict": {
+    "🍇": "grapes",
+    "🍈": "melon",
+    "🍉": "watermelon",
+    "🍊": "tangerine",
+    "🍋": "lemon",
+    "🍌": "banana",
+    "🍍": "pineapple",
+    "🥭": "mango",
+    "🍎": "apple",
+    "🍏": "apple",
+    "🍐": "pear",
+    "🍑": "peach",
+    "🍒": "cherries",
+    "🍓": "strawberry",
+    "🫐": "blueberries",
+    "🥝": "kiwi",
+    "🍅": "tomato",
+    "🫒": "olive",
+    "🥥": "coconut",
+    "🥑": "avocado"
   }
 }

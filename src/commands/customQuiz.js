@@ -1,18 +1,20 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { sendQuizByCommand } from '../functions/sendQuiz.js';
 import { isCommandExcluded } from '../functions/excludeChannels.js';
+import dotenv from 'dotenv';
+dotenv.config();
+const botName = process.env.BOT_NAME;
+const quizObject = process.env.QUIZ_OBJECT;
 
 const data = new SlashCommandBuilder()
   .setName('custom-quiz')
   .setDescription(
-    'Replies with custom-quiz! Write all options. Mark will draw it',
+    `Replies with custom-quiz! Write all options. ${botName} will draw it`,
   )
   .addStringOption((option) =>
     option
-      .setName('animal')
-      .setDescription(
-        'Write the name of the animal for the quiz. (ex. elephant)',
-      ),
+      .setName(quizObject)
+      .setDescription(`Write the name of the ${quizObject} for the quiz.`),
   )
   .addStringOption((option) =>
     option
@@ -26,11 +28,13 @@ const execute = (interaction) => {
     return;
   }
 
-  const animal = interaction.options.getString('animal');
+  const object = interaction.options.getString(quizObject);
   let description = interaction.options.getString('description');
 
-  if (!animal) {
-    interaction.reply('Please write animal option and description option');
+  if (!object) {
+    interaction.reply(
+      `Please write ${quizObject} option and description option`,
+    );
     return;
   }
 
@@ -39,7 +43,7 @@ const execute = (interaction) => {
     return;
   }
 
-  const text = `${animal} ${description}`;
-  sendQuizByCommand(interaction, text, animal);
+  const text = `${object} ${description}`;
+  sendQuizByCommand(interaction, text, object);
 };
 export { data, execute };
