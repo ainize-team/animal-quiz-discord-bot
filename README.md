@@ -1,6 +1,6 @@
-# animal-quiz-discord-bot-jibaek
+# drawing-quiz-discord-bot-jibaek
 
-텍스트 모델에서 생성된 프롬프트로 이미지 모델에서 이미지를 생성하고, 어떤 동물을 그린 것인지 맞추는 퀴즈를 내는 디스코드 봇
+텍스트 모델에서 생성된 프롬프트로 이미지 모델에서 이미지를 생성하고, 어떤 동물을 그린 것인지 맞추는 퀴즈를 내는 디스코드 봇환경변수를 통해 fruit 또는 동물 퀴즈를 선택 가능
 
 ## 개발 환경 & 스펙
 
@@ -24,6 +24,8 @@
 - ORGANIZATION_ID = GPT3 사용자 ID
 - QUIZ_CHANNEL_ID = 퀴즈채널 아이디
 - GALLERY_CHANNEL_ID = 갤러리 채널 아이디
+- QUIZ_OBJECT = animal (or fruit)
+- BOT_NAME = Mark (or Marry)
 
 ## 파일경로
 

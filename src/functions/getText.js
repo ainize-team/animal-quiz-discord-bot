@@ -1,12 +1,14 @@
 import {
   description,
   talkDescription,
-  designerPromptExampleList,
+  designerPromptExampleDict,
 } from '../../data/prompts.js';
 import { getRandomInt } from './utils.js';
 import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
+const botName = process.env.BOT_NAME;
+
 const apikey = process.env.API_KEY;
 const OrganizationID = process.env.ORGANIZATION_ID;
 const url = 'https://api.openai.com/v1/completions';
@@ -51,7 +53,7 @@ async function getTalk(text) {
   const prompt = `${description}
 ${talkDescription}
 me: ${text}
-Mark:`;
+${botName}:`;
   try {
     const response = await axios.post(
       url,
@@ -85,10 +87,10 @@ Mark:`;
   }
 }
 
-async function getImagination(animal) {
+async function getImagination(object) {
   const prompt = `${description}\n${
-    designerPromptExampleList[getRandomInt(6)]
-  }${animal}`;
+    designerPromptExampleDict[process.env.QUIZ_OBJECT][getRandomInt(6)]
+  }${object}`;
   try {
     const response = await axios.post(
       url,

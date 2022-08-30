@@ -22,7 +22,7 @@ function checkGalleryMessageAndReactWithAnswer(message, answerEmoji) {
 }
 
 function sendToGalleryChannel(message) {
-  let animal = '';
+  let object = '';
   for (const [key, value] of message.reactions.cache) {
     if (key === '🎨') {
       return;
@@ -33,7 +33,7 @@ function sendToGalleryChannel(message) {
       key !== '❤️' &&
       value.me
     ) {
-      animal = key;
+      object = key;
     }
   }
 
@@ -45,8 +45,8 @@ function sendToGalleryChannel(message) {
         files: [attach.attachment],
       });
       lastSentMessage.react('❤️');
-      if (animal) {
-        lastSentMessage.react(animal);
+      if (object) {
+        lastSentMessage.react(object);
       }
       lastSentMessageEmbed = embed;
       message.react('🎨');
