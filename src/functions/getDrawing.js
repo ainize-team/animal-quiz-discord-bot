@@ -1,58 +1,48 @@
 import axios from 'axios';
 import { text2imageInfo as image } from '../../data/const.js';
-const url =
-  'https://hf.space/embed/multimodalart/latentdiffusion/+/api/predict/';
-
-function getBase64Data(response) {
-  const responseData = response['data'];
-  if (!responseData) {
-    console.log('error: get wrong format of response');
-    console.log(response);
-    return false;
-  }
-  const imageDataArray = responseData['data'];
-  if (!imageDataArray) {
-    console.log('error: fail to get image data array');
-    console.log(responseData);
-    return false;
-  }
-
-  // 현재 사용중인 서버는 base64Data를 배열 안에 넣어 전송함. 로컬 서버로 이전한 뒤에는 imageDataArray => imageData로 변경하여 아래의 if문을 위와 통합할 것
-  const imageData = imageDataArray[0];
-  if (!imageData) {
-    console.log('error: fail to get image data');
-    console.log(imageDataArray);
-    return false;
-  }
-
-  const base64Data = imageData.replace(/^data:image\/png;base64,/, '');
-  if (base64Data.length === imageData.length) {
-    console.log('error: fail to get base64 data');
-    console.log(imageData);
-    return false;
-  }
-  return base64Data;
-}
+import { delay } from './utils.js';
+const url = 'https://3873-103-139-119-10.jp.ngrok.io';
+const headers = {
+  'content-type': 'application/json',
+  accept: 'application/json',
+};
 
 async function getDrawing(text) {
   try {
-    const response = await axios.post(url, {
-      data: [
-        text,
-        image.steps,
-        image.width,
-        image.height,
-        image.count,
-        image.diversityScale,
-      ],
-    });
+    const response = await axios.post(
+      `${url}/generate`,
+      {
+        prompt: text,
+        steps: image.steps,
+        seed: image.seed,
+        width: image.width,
+        height: image.height,
+        images: image.count,
+        guidance_scale: image.diversityScale,
+      },
+      {
+        headers: headers,
+      },
+    );
+    const task_id = response['data']['task_id'];
+    let i = 0;
+    let responseData;
+    for (; i <= 15; i++) {
+      const second = 1000;
+      await delay(2 * second); /// waiting 1 second.
 
-    const base64Data = getBase64Data(response);
-    if (!base64Data) {
-      return false;
+      const getResponse = await axios.get(`${url}/result/${task_id}`, {
+        headers: headers,
+      });
+
+      responseData = getResponse['data'];
+      const status = responseData['status'];
+      if (status === 'completed') {
+        const imageUrl = responseData['result']['grid']['url'];
+        return imageUrl;
+      }
     }
-
-    return base64Data;
+    return false;
   } catch (e) {
     console.log(e);
     return false;
