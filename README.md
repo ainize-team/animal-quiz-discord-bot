@@ -37,4 +37,6 @@
 ## 사용 모델
 
 - GPT-3 - https://beta.openai.com/docs/models/gpt-3
+- Stable Diffusion
 - Latent Diffusion - https://huggingface.co/multimodalart/compvis-latent-diffusion-text2img-large/tree/main
+
