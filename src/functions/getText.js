@@ -5,9 +5,10 @@ import {
 } from '../../data/prompts.js';
 import { getRandomInt } from './utils.js';
 import axios from 'axios';
-import config from '../config.json' assert { type: 'json' };
-const apikey = config['apikey'];
-const OrganizationID = config['OrganizationID'];
+import dotenv from 'dotenv';
+dotenv.config();
+const apikey = process.env.API_KEY;
+const OrganizationID = process.env.ORGANIZATION_ID;
 const url = 'https://api.openai.com/v1/completions';
 const headers = {
   'content-type': 'application/json',

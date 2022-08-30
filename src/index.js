@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { Client, Collection, GatewayIntentBits } from 'discord.js';
-import config from './config.json' assert { type: 'json' };
+import dotenv from 'dotenv';
+dotenv.config();
 
 const __dirname = path.resolve();
 const client = new Client({
@@ -57,4 +58,4 @@ client.on('interactionCreate', async (interaction) => {
 });
 
 // Login to Discord with your client's token
-client.login(config['token']);
+client.login(process.env.TOKEN);
