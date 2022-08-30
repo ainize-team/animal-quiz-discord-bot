@@ -5,5 +5,5 @@ function getKeyByValue(object, value) {
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
-
-export { getKeyByValue, getRandomInt };
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+export { getKeyByValue, getRandomInt, delay };

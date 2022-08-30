@@ -26,6 +26,7 @@
 - GALLERY_CHANNEL_ID = 갤러리 채널 아이디
 - QUIZ_OBJECT = animal (or fruit)
 - BOT_NAME = Mark (or Marry)
+- TTI_MODEL_URL = endpoint URL
 
 ## 파일경로
 
@@ -36,4 +37,6 @@
 ## 사용 모델
 
 - GPT-3 - https://beta.openai.com/docs/models/gpt-3
+- Stable Diffusion
 - Latent Diffusion - https://huggingface.co/multimodalart/compvis-latent-diffusion-text2img-large/tree/main
+

@@ -91,12 +91,11 @@ async function getImagination(object) {
   const promptList = designerPromptExampleDict[process.env.QUIZ_OBJECT];
   const prompt = `${description}
 ${promptList[getRandomInt(promptList.length)]}${object}`;
-  console.log(prompt);
   try {
     const response = await axios.post(
       url,
       {
-        model: 'text-davinci-002',
+        model: 'text-curie-001',
         prompt: prompt,
         temperature: 1,
         max_tokens: 30,

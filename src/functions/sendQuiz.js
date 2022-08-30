@@ -1,6 +1,5 @@
 import { getDrawing } from './getDrawing.js';
-import fs from 'node:fs';
-import { AttachmentBuilder, EmbedBuilder } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 import { getRandomQuiz, getQuizDict } from './getQuiz.js';
 import { checkGalleryMessageAndReactWithAnswer } from './sendToGallery.js';
 import dotenv from 'dotenv';
@@ -21,20 +20,17 @@ ${quiz}`,
 async function processQuiz(quizDict) {
   const description = quizDict['description'];
   const quiz = quizDict['quiz'];
-  const base64Data = await getDrawing(description);
+  const imageUrl = await getDrawing(description);
 
-  if (base64Data === false) {
+  if (!imageUrl) {
     const embed = getEmbed('Sorry, something is wrong with the drawing.');
     return {
       embeds: [embed],
     };
   }
-
-  await fs.promises.writeFile('out.png', base64Data, 'base64');
-  const drawing = new AttachmentBuilder('out.png');
   const embed = getEmbed(quiz);
   return {
-    files: [drawing],
+    files: [imageUrl],
     embeds: [embed],
   };
 }
