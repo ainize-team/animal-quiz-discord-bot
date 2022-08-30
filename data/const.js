@@ -1,8 +1,8 @@
 const quizInterval = 1;
-const longTermQuizInterval = quizInterval * 5;
+const longTermQuizInterval = quizInterval * 60;
 const second = 1000;
 const minute = 60 * second;
-const extendIntervalAfter = 30 * minute;
+const extendIntervalAfter = 10 * minute;
 
 const maxSteps = 50;
 const maxDiversity = 5;

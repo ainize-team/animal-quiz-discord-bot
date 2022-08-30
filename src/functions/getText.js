@@ -47,7 +47,8 @@ function getText(response) {
 }
 
 async function getTalk(text) {
-  const prompt = `${description} ${talkDescription}
+  const prompt = `${description}
+${talkDescription}
 me: ${text}
 Mark:`;
   try {
@@ -67,7 +68,6 @@ Mark:`;
         headers: headers,
       },
     );
-    console.log(prompt);
 
     const talk = getText(response);
     if (!talk) {
@@ -87,7 +87,7 @@ Mark:`;
 async function getImagination(animal) {
   const prompt = `${description}\n${
     designerPromptExampleList[getRandomInt(6)]
-  } ${animal}`;
+  }${animal}`;
   try {
     const response = await axios.post(
       url,
