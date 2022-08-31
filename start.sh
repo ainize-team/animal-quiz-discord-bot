@@ -1,3 +1,3 @@
 cd src
 node deploy-commands.js
-node .
+supervisor index.js

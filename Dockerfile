@@ -7,6 +7,7 @@ COPY package*.json /app/
 RUN npm install
 COPY . ./
 
+RUN npm install --location=global supervisor
 
 EXPOSE 8080
 RUN chmod +x /app/start.sh
