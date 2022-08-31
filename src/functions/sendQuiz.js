@@ -62,7 +62,7 @@ async function sendLastQuizAnswer(quizDict) {
     const message = quizDict['message'];
     const answer = quizDict['object'];
     const emoji = quizDict['emoji'];
-    message.react(emoji);
+    //message.react(emoji);
     checkGalleryMessageAndReactWithAnswer(message, emoji);
 
     const embed = new EmbedBuilder()

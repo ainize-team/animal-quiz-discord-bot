@@ -7,9 +7,9 @@ const botName = process.env.BOT_NAME;
 const quizObject = process.env.QUIZ_OBJECT;
 
 const data = new SlashCommandBuilder()
-  .setName('custom-quiz')
+  .setName('quiz')
   .setDescription(
-    `Replies with custom-quiz! Write all options. ${botName} will draw it`,
+    `Replies with quiz! Write all options. ${botName} will draw it`,
   )
   .addStringOption((option) =>
     option

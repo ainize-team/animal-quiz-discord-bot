@@ -18,7 +18,7 @@
 ## 환경변수
 
 - TOKEN = 디스코드봇 로그인을 위한 토큰
-- CLIENT_ID = 디스코드봇 아이디
+- CLIENT_ID = 디스코드봇 APPLICATION 아이디
 - GUILD_ID = 디스코드 서버 아이디
 - API_KEY = GPT3 API KEY
 - ORGANIZATION_ID = GPT3 사용자 ID
@@ -39,4 +39,3 @@
 - GPT-3 - https://beta.openai.com/docs/models/gpt-3
 - Stable Diffusion
 - Latent Diffusion - https://huggingface.co/multimodalart/compvis-latent-diffusion-text2img-large/tree/main
-
